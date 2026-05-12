@@ -1,14 +1,15 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SiteLayout from './components/SiteLayout';
 import ArtworkDetailPage from './pages/ArtworkDetailPage';
+import HomePage from './pages/HomePage';
 import GalleryPage from './pages/GalleryPage';
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route element={<SiteLayout />}>
-        <Route index element={<GalleryPage />} />
-        <Route path="gallery" element={<Navigate to="/" replace />} />
+        <Route index element={<HomePage />} />
+        <Route path="gallery" element={<GalleryPage />} />
         <Route path="artworks/:artworkId" element={<ArtworkDetailPage />} />
         <Route path="about" element={<Navigate to="/#about" replace />} />
         <Route path="contact" element={<Navigate to="/#contact" replace />} />

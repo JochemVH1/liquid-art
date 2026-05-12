@@ -6,8 +6,7 @@ export default function SiteNav() {
       <ul className="site-nav__list">
         <li>
           <NavLink
-            to="/"
-            end
+            to="/gallery"
             className={({ isActive }) => (isActive ? 'site-nav__link is-active' : 'site-nav__link')}
           >
             Gallery
