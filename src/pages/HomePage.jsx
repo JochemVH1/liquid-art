@@ -3,7 +3,7 @@ import HomeInfoSections from '../components/HomeInfoSections';
 import { artworks } from '../data/artworks';
 
 export default function HomePage() {
-  const featuredArtwork = artworks[0];
+  const featuredArtwork = artworks.find(({ id }) => id === 'session-one-study-one') ?? artworks[0];
 
   return (
     <>

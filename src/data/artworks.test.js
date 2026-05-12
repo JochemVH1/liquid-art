@@ -2,14 +2,15 @@ import { describe, expect, it } from 'vitest';
 import { artworks } from './artworks';
 
 describe('artworks', () => {
-  it('exports the first artwork object shape', () => {
-    expect(artworks[0]).toMatchObject({
-      id: expect.any(String),
-      title: expect.any(String),
-      image: '/artwork/chromatic-flow.jpg',
-      year: expect.any(String),
-      medium: expect.any(String),
-      description: expect.any(String)
-    });
+  it('exports the collection of public artwork images', () => {
+    expect(artworks).toHaveLength(7);
+    expect(artworks.map(({ image }) => image)).toEqual([
+      '/artwork/session1-1.jpg',
+      '/artwork/session1-2.jpg',
+      '/artwork/session1-3.jpg',
+      '/artwork/session2-1.jpg',
+      '/artwork/session2-2.jpg',
+      '/artwork/session2-3.jpg'
+    ]);
   });
 });

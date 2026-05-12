@@ -42,6 +42,7 @@ npm run build
 - `src/components/` contains shared UI.
 - `src/data/artworks.js` holds the artwork content.
 - `src/styles/global.css` contains the global styling.
+- `public/artwork/` is gitignored and should contain local-only image assets.
 
 ## Architecture notes
 

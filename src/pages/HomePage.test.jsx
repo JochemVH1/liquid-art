@@ -5,8 +5,9 @@ import { artworks } from '../data/artworks';
 import HomePage from './HomePage';
 
 describe('HomePage', () => {
-  it('shows the first artwork as the featured piece', () => {
-    const featuredArtwork = artworks[0];
+  it('shows the featured artwork on the home page', () => {
+    const featuredArtwork =
+      artworks.find(({ id }) => id === 'session-one-study-one') ?? artworks[0];
 
     render(
       <MemoryRouter>
@@ -47,6 +48,12 @@ describe('HomePage', () => {
     );
 
     expect(screen.getByRole('heading', { name: 'About' })).toBeInTheDocument();
+    expect(
+      screen.getByText(/Creative expression has always shaped the way I move through the world/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/testing combinations, observing movement, and learning how each material behaves/i)
+    ).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
   });
 });
