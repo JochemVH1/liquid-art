@@ -1,7 +1,19 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import SiteNav from './SiteNav';
 
 export default function SiteLayout({ children }) {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const element = document.getElementById(location.hash.slice(1));
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.hash, location.pathname]);
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -11,6 +23,18 @@ export default function SiteLayout({ children }) {
         <SiteNav />
       </header>
       <main className="site-main">{children ?? <Outlet />}</main>
+      <footer className="site-footer">
+        <section className="info-page" id="about">
+          <p className="eyebrow">About</p>
+          <h1>About</h1>
+          <p>A quiet collection of liquid-inspired studies in color, light, and motion.</p>
+        </section>
+        <section className="info-page" id="contact">
+          <p className="eyebrow">Contact</p>
+          <h1>Contact</h1>
+          <p>For commissions, exhibitions, and studio visits, please get in touch.</p>
+        </section>
+      </footer>
     </div>
   );
 }

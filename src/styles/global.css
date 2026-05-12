@@ -78,8 +78,21 @@ img {
   padding-top: 2rem;
 }
 
+.site-footer {
+  display: grid;
+  gap: 3rem;
+  padding-top: 4rem;
+}
+
+.gallery-page {
+  display: grid;
+  gap: 4rem;
+}
+
 .featured-artwork,
-.info-page {
+.gallery-page__section,
+.info-page,
+.artwork-detail {
   display: grid;
   gap: 1.5rem;
 }
@@ -88,17 +101,32 @@ img {
   align-items: start;
 }
 
+.gallery-page__list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.artwork-card__link {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.artwork-card__link img,
+.featured-artwork__image {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  width: 100%;
+}
+
 .featured-artwork__media {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(245, 240, 232, 0.14);
   border-radius: 1.5rem;
   overflow: hidden;
-}
-
-.featured-artwork__image {
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  width: 100%;
 }
 
 .featured-artwork__content,
@@ -133,6 +161,10 @@ h1 {
 @media (min-width: 800px) {
   .featured-artwork {
     grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  }
+
+  .gallery-page__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

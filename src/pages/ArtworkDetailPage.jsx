@@ -11,7 +11,7 @@ export default function ArtworkDetailPage() {
         <p className="eyebrow">Gallery</p>
         <h1>Artwork not found</h1>
         <p>The requested artwork is not available in the current collection.</p>
-        <Link to="/gallery">Return to the gallery</Link>
+        <Link to="/">Return to the gallery</Link>
       </section>
     );
   }
@@ -24,7 +24,7 @@ export default function ArtworkDetailPage() {
         {artwork.year} · {artwork.medium}
       </p>
       <p>{artwork.description}</p>
-      <Link to="/gallery">Return to the gallery</Link>
+      <Link to="/">Return to the gallery</Link>
     </article>
   );
 }
