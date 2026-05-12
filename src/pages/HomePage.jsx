@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { artworks } from '../data/artworks';
 
 export default function HomePage() {
@@ -19,6 +20,18 @@ export default function HomePage() {
           {featuredArtwork.year} · {featuredArtwork.medium}
         </p>
         <p>{featuredArtwork.description}</p>
+        <p className="featured-artwork__intro">
+          Explore a focused portfolio of liquid-inspired paintings shaped by layered pigment,
+          luminous gradients, and slow-moving motion studies.
+        </p>
+        <div className="action-group">
+          <Link className="button-link button-link--primary" to="/gallery">
+            Explore the gallery
+          </Link>
+          <Link className="button-link" to="/#about">
+            Learn about the studio
+          </Link>
+        </div>
       </div>
     </section>
   );

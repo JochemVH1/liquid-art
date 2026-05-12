@@ -17,7 +17,12 @@ describe('ArtworkDetailPage', () => {
     );
 
     expect(screen.getByRole('heading', { name: artwork.title })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: artwork.title })).toHaveAttribute('src', artwork.image);
     expect(screen.getByText(`${artwork.year} · ${artwork.medium}`)).toBeInTheDocument();
     expect(screen.getByText(artwork.description)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Return to the gallery' })).toHaveAttribute(
+      'href',
+      '/gallery'
+    );
   });
 });
