@@ -6,8 +6,8 @@ describe('artworks', () => {
     expect(artworks[0]).toMatchObject({
       id: expect.any(String),
       title: expect.any(String),
-      image: expect.any(String),
-      year: expect.any(Number),
+      image: '/artwork/chromatic-flow.jpg',
+      year: expect.any(String),
       medium: expect.any(String),
       description: expect.any(String)
     });
