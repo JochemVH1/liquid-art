@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
 import SiteLayout from './SiteLayout';
@@ -36,7 +36,7 @@ describe('SiteLayout', () => {
     expect(screen.getByRole('main')).toHaveAttribute('id', 'main-content');
   });
 
-  it('respects reduced-motion when scrolling to hash targets', () => {
+  it('respects reduced-motion when scrolling to hash targets', async () => {
     const originalMatchMedia = window.matchMedia;
     const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
     const scrollIntoView = vi.fn();
@@ -56,12 +56,14 @@ describe('SiteLayout', () => {
     render(
       <MemoryRouter initialEntries={['/#about']}>
         <SiteLayout>
-          <p>Featured artwork content</p>
+          <p id="about">Featured artwork content</p>
         </SiteLayout>
       </MemoryRouter>
     );
 
-    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' });
+    await waitFor(() =>
+      expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'auto', block: 'start' })
+    );
 
     window.matchMedia = originalMatchMedia;
     HTMLElement.prototype.scrollIntoView = originalScrollIntoView;

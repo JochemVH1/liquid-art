@@ -103,12 +103,6 @@ img {
   padding-top: 2rem;
 }
 
-.site-footer {
-  display: grid;
-  gap: 3rem;
-  padding-top: 4rem;
-}
-
 .gallery-page {
   display: grid;
   gap: 4rem;

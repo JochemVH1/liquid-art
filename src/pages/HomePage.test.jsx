@@ -38,4 +38,15 @@ describe('HomePage', () => {
       '/#about'
     );
   });
+
+  it('renders the about and contact sections on the home page', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByRole('heading', { name: 'About' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
+  });
 });
