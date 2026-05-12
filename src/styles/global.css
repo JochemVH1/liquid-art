@@ -1,3 +1,15 @@
+:root {
+  color: #f5f0e8;
+  background: #11100f;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -6,9 +18,128 @@ body,
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(107, 70, 193, 0.22), transparent 32%),
+    linear-gradient(180deg, #161311 0%, #11100f 100%);
+  color: inherit;
 }
 
-main {
-  padding: 2rem;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.site-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.14);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.site-title {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-nav__list {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  color: rgba(245, 240, 232, 0.72);
+  transition: color 150ms ease;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible,
+.site-nav__link.is-active {
+  color: #ffffff;
+}
+
+.site-main {
+  padding-top: 2rem;
+}
+
+.featured-artwork,
+.info-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.featured-artwork {
+  align-items: start;
+}
+
+.featured-artwork__media {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(245, 240, 232, 0.14);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.featured-artwork__image {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  width: 100%;
+}
+
+.featured-artwork__content,
+.info-page {
+  max-width: 38rem;
+}
+
+.featured-artwork__meta,
+.eyebrow {
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+@media (min-width: 800px) {
+  .featured-artwork {
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  .site-nav__list {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
